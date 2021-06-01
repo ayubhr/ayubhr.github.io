@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" sizes="16x16" href="img/24.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/weather.css">
+
+<title>My Daily Routine App</title>
+</head>
+
+<body onload="Init()">
+  
+<div class="container">
+
+  <div>
+      
+      <h2 id="MyApp" class="center-content">My Daily Routine App</h2>
+
+  </div>
+  <div class="row">
+    <a href="javascript:void(0)" onclick="openSection(event, 'ToDoList');">
+      <div class="center-content third tablink bottombar hover-light-grey padding">ToDo List</div>
+    </a>
+    <a href="javascript:void(0)" onclick="openSection(event, 'Quote');">
+      <div class="center-content third tablink bottombar hover-light-grey padding">Today Quote</div>
+    </a>
+    <a href="javascript:void(0)" onclick="openSection(event, 'CoronaVirus');">
+      <div class="center-content third tablink bottombar hover-light-grey padding">Coronavirus</div>
+    </a>
+  </div>
+
+<div id="main" class="main" >
+
+  <div  class="header">
+
+
+      <div id="loaderWeather" >
+        <div class="myspinner"><div></div><div></div></div>
+      </div>
+
+<div id="weath" class="weather-containero hidden">
+    
+    <div class="card-weather">
+
+        <div>
+        <h1 id="country_city" class="country-city"></h1>
+
+        <span id="country_code" class="country-code"></span> 
+        </div>
+
+        <div id="weather_box" class="weather-box">
+
+          <div id="weath_icon">
+
+           
+          </div>
+
+        
+
+          <h1 id="weather_degre" class="weather-degre"></h1>
+          <p id="weather_state" class="weather-state"></p>
+
+        </div>   
+
+
+    </div>
+
+
+     <div id="dateF"></div>
+     <div id="clock"></div>
+
+
+  </div>
+
+  </div>
+
+
+</div>
+
+
+<div id="ToDoList" class="hidden section" >
+
+  <div  class="header">
+
+    <h2 style="margin:5px;">MY TODO LIST</h2>
+
+      <input  class="input_trans" type="text" id="myInput" placeholder="title...">
+
+      <button onclick="newTask()" class="btn">Add</button>
+
+        <p id="msg_success">task created successfully</p> 
+
+        <p id="msg_error">Task title should not be empty !</p> 
+
+  </div>
+
+  <ul id="mytaskList">
+
+  </ul>
+
+</div>
+
+
+<div id="Quote" class="hidden section" >
+
+  <div class="header">
+
+    <p class="helper">get your quote for today by clicking the button bellow</p>
+
+      <button onclick="getQuote()" class="btn">GET QUOTE</button>
+
+      <div id="quoteDiv" class="hidden">
+
+        <blockquote id="quote" class="quote">
+          
+        </blockquote>
+
+        <p id="author" class="author"></p> 
+
+        <span class="smile">&#128515;</span>
+        
+      </div> 
+
+      <div id="loader" >
+        <div class="myspinner"><div></div><div></div></div>
+      </div>
+
+  </div>
+
+</div>
+
+<div id="CoronaVirus" class="hidden section" >
+
+  <div class="header">
+
+      <h3>Live Covid-19 Statistics in Tunisia</h3>
+      <p class="helper">click the button below to get information instantly</p>
+
+
+      <button onclick="getCovid()" class="btn">GET NOW !</button>
+
+      <div id="CovidBox" class="hidden">
+
+        <p style="color: #b9b1b1;">date : </p>
+
+        <h3>Today Statistics</h3>
+        <div id="today">
+
+          <div class="Covidalert success">
+            <span class="badge"></span>  
+            <strong>&#9851; Today Recovered</strong> 
+          </div>
+
+          <div class="Covidalert warning">
+            <span class="badge"></span>  
+            <strong>&#9762; Today Cases </strong> 
+          </div>
+
+          <div class="Covidalert danger">
+            <span class="badge"></span>  
+            <strong>&#9760; Today Deaths</strong> 
+          </div>
+
+        </div>
+
+        <h3>Total Statistics</h3>
+        <div id="total">
+          <div class="Covidalert warning">
+            <span class="badge"></span>  
+            <strong>&#9762; Total Cases </strong> 
+          </div>
+
+          <div class="Covidalert danger">
+            <span class="badge"></span>  
+            <strong>&#9760; Total Deaths</strong> 
+          </div>
+
+          <div class="Covidalert success">
+            <span class="badge"></span>  
+            <strong>&#9851; Total Recovered</strong> 
+          </div>
+
+          <div class="Covidalert info">
+            <span class="badge"></span>  
+            <strong>&#9737; Active Cases</strong> 
+          </div>
+        </div>
+
+
+        <br>
+       <img src=""  style="width: 50px;">
+
+      </div>
+
+
+      <div id="loaderCorona" class="hidden" >
+        <div class="myspinner"><div></div><div></div></div>
+      </div>
+
+  </div>
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+
+  <div class="center-content footer">
+    Made with <span class="heart">&hearts;</span> in Tunisia
+
+    </div>
+
+</footer>
+
+  
+<div class="section-overlay media">
+  <img id="page-rain" alt="" src="img/page-image-rain.jpg">
+</div>
+
+
+
+<script src="js/rainyday.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/todolist.js"></script>
+<script type="text/javascript" src="js/quote.js"></script>
+<script type="text/javascript" src="js/covid.js"></script>
+
+</body>
+</html>
